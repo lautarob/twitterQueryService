@@ -8,6 +8,13 @@ module.exports = {
           if (err) return res.serverError(err);
 
           collection.aggregate( [
+            {"$match": {
+             "posted_at" : 
+                  { "$gte": new Date(dateFrom), 
+                    "$lt": new Date(dateTo)
+                  }
+                        }
+             },
             { "$unwind" : "$topics" },
             {"$group" : {"_id":"$topics", "count":{"$sum":1}}}
             ] ).toArray(function (err, results) {
@@ -28,6 +35,13 @@ module.exports = {
           if (err) return res.serverError(err);
 
           collection.aggregate( [
+            {"$match": {
+             "posted_at" : 
+                  { "$gte": new Date(dateFrom), 
+                    "$lt": new Date(dateTo)
+                  }
+                        }
+             },
             { "$unwind" : "$topics" },
             { "$group": {"_id": {
                 "topic": "$topics",
@@ -53,6 +67,13 @@ module.exports = {
           if (err) return res.serverError(err);
 
           collection.aggregate( [
+            {"$match": {
+             "posted_at" : 
+                  { "$gte": new Date(dateFrom),
+                    "$lt": new Date(dateTo)
+                  }
+                        }
+             },
             { "$unwind" : "$topics" },
             { "$group": {"_id": {
                 "topic": "$topics",

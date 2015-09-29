@@ -9,13 +9,18 @@ module.exports = {
 
   attributes: {
 
-  	username: { type: 'string'},
+  	userName: { type: 'string'},
   	originalText: { type: 'string'},
-  	processedText: { type: 'string'},
   	topics: { type: 'array'},
+    entities: { type: 'array'},
+  	hashTags: { type: 'array'},
+  	persons: { type: 'array'},
+  	geography: { type: 'array'},
+  	twitterUsers: { type: 'array'},
+  	keyWords: { type: 'array'},
   	posted_at: { type: 'datetime'},
   	country: { type: 'string'},
-  	processed: { type: 'boolean'}
+  	filter_id: { type: 'integer'}
 
   }
 };

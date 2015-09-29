@@ -36,8 +36,9 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  'post /start': 'TweetsController.start',
-  'post /stop': 'TweetsController.stop'
+  'post /stats/statsByTopics': 'QueryController.statsByTopics',
+  'post /stats/statsByTopicsAndCountry': 'QueryController.statsByTopicsAndCountry',
+  'post /stats/getStatsByTopicsAndDate': 'QueryController.statsByTopicsAndDate'
 
 
 

@@ -38,7 +38,9 @@ module.exports.routes = {
 
   'post /stats/statsByTopics': 'QueryController.statsByTopics',
   'post /stats/statsByTopicsAndCountry': 'QueryController.statsByTopicsAndCountry',
-  'post /stats/getStatsByTopicsAndDate': 'QueryController.statsByTopicsAndDate'
+  'post /stats/statsByTopicsAndDate': 'QueryController.statsByTopicsAndDate',
+  'post /stats/statsByTopicsAndMonth': 'QueryController.statsByTopicsAndMonth'
+
 
 
 

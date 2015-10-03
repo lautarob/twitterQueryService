@@ -93,6 +93,118 @@
 
   });
 
+  },
+
+  statsByUsers: function (req, res) {
+
+    var dateFrom = req.body.dateFrom;
+    var dateTo = req.body.dateTo;
+
+    QueryService.getStatsByUsers(dateFrom,dateTo,function(err,results){
+
+     if(!err)
+     {
+      res.status(200);
+      return res.send(results);
+    }
+    else
+    {
+      res.status(500);
+      return res.send(err);
+    }
+
+
+  });
+
+  },
+
+  statsByUsersAndDate: function (req, res) {
+
+    var dateFrom = req.body.dateFrom;
+    var dateTo = req.body.dateTo;
+
+    QueryService.getStatsByUsersAndDate(dateFrom,dateTo,function(err,results){
+
+       if(!err)
+       {
+        res.status(200);
+        return res.send(results);
+      }
+      else
+      {
+        res.status(500);
+        return res.send(err);
+      }
+
+  });
+
+  },
+
+    statsByUsersAndMonth: function (req, res) {
+
+    var dateFrom = req.body.dateFrom;
+    var dateTo = req.body.dateTo;
+
+    QueryService.getStatsByUsersAndMonth(dateFrom,dateTo,function(err,results){
+
+       if(!err)
+       {
+        res.status(200);
+        return res.send(results);
+      }
+      else
+      {
+        res.status(500);
+        return res.send(err);
+      }
+
+  });
+
+  },
+
+  statsByHashTags: function (req, res) {
+
+    var dateFrom = req.body.dateFrom;
+    var dateTo = req.body.dateTo;
+
+    QueryService.getStatsByHashTags(dateFrom,dateTo,function(err,results){
+
+     if(!err)
+     {
+      res.status(200);
+      return res.send(results);
+    }
+    else
+    {
+      res.status(500);
+      return res.send(err);
+    }
+
+
+  });
+
+  },
+
+  statsByHashTagsAndMonth: function (req, res) {
+
+    var dateFrom = req.body.dateFrom;
+    var dateTo = req.body.dateTo;
+
+    QueryService.getStatsByHashTagsAndMonth(dateFrom,dateTo,function(err,results){
+
+       if(!err)
+       {
+        res.status(200);
+        return res.send(results);
+      }
+      else
+      {
+        res.status(500);
+        return res.send(err);
+      }
+
+  });
+
   }
 
 

@@ -36,10 +36,21 @@ module.exports.routes = {
     view: 'homepage'
   },
 
-  'post /stats/statsByTopics': 'QueryController.statsByTopics',
   'post /stats/statsByTopicsAndCountry': 'QueryController.statsByTopicsAndCountry',
+
+  // Topics
+  'post /stats/statsByTopics': 'QueryController.statsByTopics',
   'post /stats/statsByTopicsAndDate': 'QueryController.statsByTopicsAndDate',
-  'post /stats/statsByTopicsAndMonth': 'QueryController.statsByTopicsAndMonth'
+  'post /stats/statsByTopicsAndMonth': 'QueryController.statsByTopicsAndMonth',
+
+  // Users
+  'post /stats/statsByUsers': 'QueryController.statsByUsers',
+  'post /stats/statsByUsersAndDate': 'QueryController.statsByUsersAndDate',
+  'post /stats/statsByUsersAndMonth': 'QueryController.statsByUsersAndMonth',
+
+  // HashTags
+  'post /stats/statsByHashTags': 'QueryController.statsByHashTags',
+  'post /stats/statsByHashTagsAndMonth': 'QueryController.statsByHashTagsAndMonth'
 
 
 

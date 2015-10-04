@@ -50,9 +50,11 @@ module.exports.routes = {
 
   // HashTags
   'post /stats/statsByHashTags': 'QueryController.statsByHashTags',
-  'post /stats/statsByHashTagsAndMonth': 'QueryController.statsByHashTagsAndMonth'
+  'post /stats/statsByHashTagsAndMonth': 'QueryController.statsByHashTagsAndMonth',
 
-
+  // Persons
+  'post /stats/statsByPersons': 'QueryController.statsByPersons',
+  'post /stats/statsByPersonsAndMonth': 'QueryController.statsByPersonsAndMonth'
 
 
   /***************************************************************************

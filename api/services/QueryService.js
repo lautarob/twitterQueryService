@@ -282,6 +282,68 @@ module.exports = {
 
         });
 
+    },
+
+    getStatsByPersons: function(dateFrom,dateTo,callbackReturn) {
+
+        TweetsProcessed.native(function(err, collection) {
+          if (err) return res.serverError(err);
+
+          collection.aggregate( [
+            {"$match": {
+             "posted_at" : 
+                  { "$gte": new Date(dateFrom), 
+                    "$lt": new Date(dateTo)
+                  }
+                        }
+             },
+            { "$unwind" : "$persons" },
+            {"$group" : {"_id":"$persons", "count":{"$sum":1}}},
+            {"$sort" : { "count" : -1}}
+            ] ).toArray(function (err, results) {
+            if (err)
+                {
+                    callbackReturn(err,null);
+                }
+                callbackReturn(null,results)
+          });
+
+        });
+
+    },
+
+    getStatsByPersonsAndMonth: function(dateFrom,dateTo,callbackReturn) {
+
+        TweetsProcessed.native(function(err, collection) {
+          if (err) return res.serverError(err);
+
+          collection.aggregate( [
+            {"$match": {
+             "posted_at" : 
+                  { "$gte": new Date(dateFrom),
+                    "$lt": new Date(dateTo)
+                  }
+                        }
+             },
+            { "$unwind" : "$persons" },
+            { "$group": {"_id": {
+                "person": "$persons",
+                "month": {"$substr": ['$posted_at', 5, 2]}
+            },
+            "count": { "$sum": 1 }
+            }},
+            {"$sort" : {"user": -1, "count" : -1}}
+
+            ] ).toArray(function (err, results) {
+                if (err)
+                {
+                    callbackReturn(err,null);
+                }
+                callbackReturn(null,results)
+            });
+
+        });
+
     }
 
 

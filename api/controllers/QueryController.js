@@ -205,6 +205,51 @@
 
   });
 
+  },
+
+  statsByPersons: function (req, res) {
+
+    var dateFrom = req.body.dateFrom;
+    var dateTo = req.body.dateTo;
+
+    QueryService.getStatsByPersons(dateFrom,dateTo,function(err,results){
+
+     if(!err)
+     {
+      res.status(200);
+      return res.send(results);
+    }
+    else
+    {
+      res.status(500);
+      return res.send(err);
+    }
+
+
+  });
+
+  },
+
+    statsByPersonsAndMonth: function (req, res) {
+
+    var dateFrom = req.body.dateFrom;
+    var dateTo = req.body.dateTo;
+
+    QueryService.getStatsByPersonsAndMonth(dateFrom,dateTo,function(err,results){
+
+       if(!err)
+       {
+        res.status(200);
+        return res.send(results);
+      }
+      else
+      {
+        res.status(500);
+        return res.send(err);
+      }
+
+  });
+
   }
 
 

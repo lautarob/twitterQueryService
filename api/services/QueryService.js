@@ -344,7 +344,41 @@ module.exports = {
 
         });
 
-    }
+    },
+
+    getMaxStatsByDay: function(dateFrom,dateTo,callbackReturn) {
+
+        TweetsProcessed.native(function(err, collection) {
+          if (err) return res.serverError(err);
+
+          collection.aggregate( [
+            {"$match": {
+             "posted_at" : 
+                  { "$gte": new Date(dateFrom),
+                    "$lt": new Date(dateTo)
+                  }
+                        }
+             },
+            { "$unwind" : "$topics" },
+            { "$group": {"_id": {
+                "topic": "$topics",
+                "day": {"$substr": ['$posted_at', 0, 10]}
+            },
+            "count": { "$sum": 1 }
+            }},
+            {"$sort" : {"_id.day": 1, "count": -1}}
+
+            ] ).toArray(function (err, results) {
+                if (err)
+                {
+                    callbackReturn(err,null);
+                }
+                callbackReturn(null,results)
+            });
+
+        });
+
+    },
 
 
 

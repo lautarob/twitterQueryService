@@ -54,7 +54,11 @@ module.exports.routes = {
 
   // Persons
   'post /stats/statsByPersons': 'QueryController.statsByPersons',
-  'post /stats/statsByPersonsAndMonth': 'QueryController.statsByPersonsAndMonth'
+  'post /stats/statsByPersonsAndMonth': 'QueryController.statsByPersonsAndMonth',
+
+  // Max
+  'post /stats/maxStatsByDay': 'QueryController.maxStatsByDay'
+	
 
 
   /***************************************************************************

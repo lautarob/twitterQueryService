@@ -250,6 +250,32 @@
 
   });
 
+  },
+
+
+  maxStatsByDay: function (req, res) {
+
+    var dateTo = new Date();
+    dateTo.setDate(dateTo.getDate()+1);
+
+    var dateFrom = new Date();
+    dateFrom.setDate(dateTo.getDate()-7);
+
+    QueryService.getMaxStatsByDay(dateFrom,dateTo,function(err,results){
+
+       if(!err)
+       {
+        res.status(200);
+        return res.send(results);
+      }
+      else
+      {
+        res.status(500);
+        return res.send(err);
+      }
+
+  });
+
   }
 
 

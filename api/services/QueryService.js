@@ -4,7 +4,7 @@ module.exports = {
 
     getTweetsToTrain: function(callBackReturn)
     {
-        TweetsProcessed.native(function(err, collection) {
+        Tweetsprocessed.native(function(err, collection) {
           if (err) return res.serverError(err);
 
           collection.aggregate([
@@ -31,7 +31,7 @@ module.exports = {
 
     getStatsByTopics: function(dateFrom,dateTo,callbackReturn) {
 
-        TweetsProcessed.native(function(err, collection) {
+        Tweetsprocessed.native(function(err, collection) {
           if (err) return res.serverError(err);
 
           collection.aggregate( [
@@ -59,7 +59,7 @@ module.exports = {
 
     getStatsByTopicsAndCountry: function(dateFrom,dateTo,callbackReturn) {
 
-        TweetsProcessed.native(function(err, collection) {
+        Tweetsprocessed.native(function(err, collection) {
           if (err) return res.serverError(err);
 
           collection.aggregate( [
@@ -91,7 +91,7 @@ module.exports = {
 
     getStatsByTopicsAndDate: function(dateFrom,dateTo,callbackReturn) {
 
-        TweetsProcessed.native(function(err, collection) {
+        Tweetsprocessed.native(function(err, collection) {
           if (err) return res.serverError(err);
 
           collection.aggregate( [
@@ -123,7 +123,7 @@ module.exports = {
 
     getStatsByTopicsAndMonth: function(dateFrom,dateTo,callbackReturn) {
 
-        TweetsProcessed.native(function(err, collection) {
+        Tweetsprocessed.native(function(err, collection) {
           if (err) return res.serverError(err);
 
           collection.aggregate( [
@@ -157,7 +157,7 @@ module.exports = {
 
     getStatsByUsers: function(dateFrom,dateTo,callbackReturn) {
 
-        TweetsProcessed.native(function(err, collection) {
+        Tweetsprocessed.native(function(err, collection) {
           if (err) return res.serverError(err);
 
           collection.aggregate( [
@@ -185,7 +185,7 @@ module.exports = {
 
     getStatsByUsersAndDate: function(dateFrom,dateTo,callbackReturn) {
 
-        TweetsProcessed.native(function(err, collection) {
+        Tweetsprocessed.native(function(err, collection) {
           if (err) return res.serverError(err);
 
           collection.aggregate( [
@@ -217,7 +217,7 @@ module.exports = {
 
     getStatsByUsersAndMonth: function(dateFrom,dateTo,callbackReturn) {
 
-        TweetsProcessed.native(function(err, collection) {
+        Tweetsprocessed.native(function(err, collection) {
           if (err) return res.serverError(err);
 
           collection.aggregate( [
@@ -251,7 +251,7 @@ module.exports = {
 
     getStatsByHashTags: function(dateFrom,dateTo,callbackReturn) {
 
-        TweetsProcessed.native(function(err, collection) {
+        Tweetsprocessed.native(function(err, collection) {
           if (err) return res.serverError(err);
 
           collection.aggregate( [
@@ -279,7 +279,7 @@ module.exports = {
 
     getStatsByHashTagsAndMonth: function(dateFrom,dateTo,callbackReturn) {
 
-        TweetsProcessed.native(function(err, collection) {
+        Tweetsprocessed.native(function(err, collection) {
           if (err) return res.serverError(err);
 
           collection.aggregate( [
@@ -313,7 +313,7 @@ module.exports = {
 
     getStatsByPersons: function(dateFrom,dateTo,callbackReturn) {
 
-        TweetsProcessed.native(function(err, collection) {
+        Tweetsprocessed.native(function(err, collection) {
           if (err) return res.serverError(err);
 
           collection.aggregate( [
@@ -341,7 +341,7 @@ module.exports = {
 
     getStatsByPersonsAndMonth: function(dateFrom,dateTo,callbackReturn) {
 
-        TweetsProcessed.native(function(err, collection) {
+        Tweetsprocessed.native(function(err, collection) {
           if (err) return res.serverError(err);
 
           collection.aggregate( [
@@ -375,7 +375,7 @@ module.exports = {
 
     getMaxStatsByDay: function(dateFrom,dateTo,callbackReturn) {
 
-        TweetsProcessed.native(function(err, collection) {
+        Tweetsprocessed.native(function(err, collection) {
           if (err) return res.serverError(err);
 
           collection.aggregate( [

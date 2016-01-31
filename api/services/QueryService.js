@@ -2,6 +2,33 @@
 
 module.exports = {
 
+    getTweetsToTrain: function(callBackReturn)
+    {
+        TweetsProcessed.native(function(err, collection) {
+          if (err) return res.serverError(err);
+
+          collection.aggregate([
+           { "$project" : {
+            "to_train" : 1,
+            "principal_topics" : 1,
+            "entities" : 1,
+            "hashTags" : 1,
+            "keyWords" : 1,
+            "topics" : 1,
+             }
+           },
+           { "$match" : { "to_train" : true } }
+           ] ).toArray(function (err, results) {
+            if (err)
+                {
+                    callBackReturn(err,null);
+                }
+                callBackReturn(null,results)
+          });
+
+        });
+    },
+
     getStatsByTopics: function(dateFrom,dateTo,callbackReturn) {
 
         TweetsProcessed.native(function(err, collection) {

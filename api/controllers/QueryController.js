@@ -7,6 +7,26 @@
  
  module.exports = {
 
+  getTweetsToTrain: function (req, res) {
+
+    QueryService.getTweetsToTrain(function(err,results){
+
+     if(!err)
+     {
+      res.status(200);
+      return res.send(results);
+    }
+    else
+    {
+      res.status(500);
+      return res.send(err);
+    }
+
+
+  });
+
+  },
+
   statsByTopics: function (req, res) {
 
     var dateFrom = req.body.dateFrom;

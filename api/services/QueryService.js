@@ -12,7 +12,6 @@ module.exports = {
             "to_train" : 1,
             "principal_topics" : 1,
             "entities" : 1,
-            "hashTags" : 1,
             "keyWords" : 1,
             "topics" : 1,
              }
@@ -21,7 +20,7 @@ module.exports = {
            ] ).toArray(function (err, results) {
             if (err)
                 {
-                    callBackReturn(err,null);
+                  callBackReturn(err,null);
                 }
                 callBackReturn(null,results)
           });

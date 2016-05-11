@@ -16,10 +16,6 @@ module.exports = {
 			result.originalText = new RegExp(query.originalText, "i");
 		if(query.principal_topic)
 			result.principal_topic = new RegExp(query.principal_topic, "i");
-		if(query.country)
-			result.country = new RegExp(query.country, "i");
-		if(query.category)
-			result.category = new RegExp(query.category, "i");
 	    if(query.to_train) {
 	        result.to_train = query.to_train === 'true' ? true : false;
 	    }
@@ -31,18 +27,6 @@ module.exports = {
 	    }
 	   	if(query.entities){
 	    	result.entities = {'$all': this.adaptArray(query.entities.split(",")) };
-	    }
-	   	if(query.hashTags){
-	    	result.hashTags = {'$all': this.adaptArray(query.hashTags.split(",")) };
-	    }
-	  	if(query.persons){
-	    	result.persons = {'$all': this.adaptArray(query.persons.split(",")) };
-	    }
-	    if(query.geography){
-	    	result.geography = {'$all': this.adaptArray(query.geography.split(",")) };
-	    }
-	   	if(query.twitterUsers){
-	    	result.twitterUsers = {'$all': this.adaptArray(query.twitterUsers.split(",")) };
 	    }
 
 	    return result;
@@ -60,10 +44,6 @@ module.exports = {
 		item.keyWords = item.keyWords.join(",");
 		item.topics = item.topics.join(",");
 		item.entities = item.entities.join(",");
-		item.hashTags = item.hashTags.join(",");
-		item.persons = item.persons.join(",");
-		item.geography = item.geography.join(",");
-		item.twitterUsers = item.twitterUsers.join(",");
 		return item;
 	},
 

@@ -1,7 +1,7 @@
 /**
- * TweetsprocessedController
+ * TweetsProcessedController
  *
- * @description :: Server-side logic for managing tweetsprocesseds
+ * @description :: Server-side logic for managing TweetsProcesseds
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
@@ -58,7 +58,7 @@ module.exports = {
 
 	getTweets: function (req, res) {
 		var self = this;
-		Tweetsprocessed.find(this.getClientFilter(req.query)).exec(function(err, items) {
+		TweetsProcessed.find(this.getClientFilter(req.query)).exec(function(err, items) {
         	res.json(self.stringfyArrays(items));
     	});
 	},
@@ -70,7 +70,7 @@ module.exports = {
 		if(item.to_train) {
 	    	item.to_train = item.to_train === 'true' ? true : false;
 	    }
-		Tweetsprocessed.native(function (err, collection) {
+		TweetsProcessed.native(function (err, collection) {
 			collection.update({_id: new ObjectId(item.id)},{"$set": {principal_topic: item.principal_topic,to_train:item.to_train}}, function (err) {
 		  		res.json(item);
 		  	});

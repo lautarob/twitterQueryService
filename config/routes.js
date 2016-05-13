@@ -62,9 +62,9 @@ module.exports.routes = {
   // Get Items to Train
 	'get /train/tweetsToTrain': 'QueryController.getTweetsToTrain',
 
-  // TweetsprocessedController
-  'get /tweetsprocessed': 'TweetsprocessedController.getTweets',
-  'put /tweetsprocessed': 'TweetsprocessedController.updateTweet'
+  // TweetsProcessedController
+  'get /TweetsProcessed': 'TweetsProcessedController.getTweets',
+  'put /TweetsProcessed': 'TweetsProcessedController.updateTweet'
 
 
 
